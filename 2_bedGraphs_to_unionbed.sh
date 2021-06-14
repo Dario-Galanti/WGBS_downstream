@@ -6,6 +6,7 @@
 ## Output: multisample unionbed file with methylation calls (possibly with NAs depending on filtNAs parameter)
 ## Run: bash 2_bedGraphs_to_unionbed.sh filtered_bedGraphs_Dir context
 ## Run: sbatch --partition test --cpus-per-task 2 --mem 40G --time 20:00:00 --wrap "bash 2_bedGraphs_to_unionbed.sh bedGraphs_v3_3cov CpG"
+## Dependencies: bedtools (https://bedtools.readthedocs.io/en/latest/content/bedtools-suite.html)
 
 ## NB: The previous script (1_filter_bedGraphs.sh) produces QC files that should be used to check samples coverage.
 ## NB: Outlier samples with very low coverage should be removed before running this script by manually deleting the corresponding filtered bedgraph files.
