@@ -2,6 +2,7 @@
 ## Author: Dario Galanti Feb 2021
 ## Aim: Filter single-sample bedGraph files (EpiDiverse WGBS output) by coverage and output some stats (coverage and n° positions covered).
 ## Aim: Positions with cov < cov_flt are discarded.
+## Documentation (EpiDiverse WGBS pipeline): https://github.com/EpiDiverse/wgbs
 ## Input: EpiDiverse wgbs output Directory with dir structure: wgbs_output/${context}/${sample}.bedGraph
 ## Output: Coverage-filtered bedgraph files with same dir structure as input (wgbs_filt_output/${context}/${sample}.bedGraph)
 ## Run: bash 1_filter_bedGraphs.sh input_Dir context
