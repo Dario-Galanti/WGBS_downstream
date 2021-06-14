@@ -1,13 +1,14 @@
 #!/bin/bash
 ## Author: Dario Galanti Feb 2021
-## Aim: Filter bedGraph files by coverage
-## Input: wgbs outDir with dir tree: wgbs_output/${context}/${sample}.bedGraph
-## Output: multisample unionbed file harbouring methylation info for all cytosines and all samples
+## Aim: Filter single-sample bedGraph files (EpiDiverse WGBS output) by coverage and output some stats (coverage and n° positions covered).
+## Aim: Positions with cov < cov_flt are discarded.
+## Input: EpiDiverse wgbs output Directory with dir structure: wgbs_output/${context}/${sample}.bedGraph
+## Output: Coverage-filtered bedgraph files with same dir structure as input (wgbs_filt_output/${context}/${sample}.bedGraph)
 ## Run: bash 1_filter_bedGraphs.sh input_Dir context
 ## Run: sbatch --partition test --cpus-per-task 2 --mem 40G --time 20:00:00 --wrap "bash 1_filter_bedGraphs.sh wgbs_v3 CpG"
 
-## TO IMPLEMENT: Add an average sample coverage filtering to remove samples with very low coverage!!
-## IMPORTANT: For now sample filtering has to be done manually looking at the QC files
+## NB: The QC file produced by this script should be used to check samples coverage.
+## NB: Outlier samples with very low coverage should be removed by manually deleting the corresponding bedgraph files in the output of this script.
 ## I REMOVED "TA_SE_09_10_F1_HC0_M1_1" MANUALLY
 
 ## FILES DIRECTORIES AND COV FILTERING:
