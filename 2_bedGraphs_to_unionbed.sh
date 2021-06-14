@@ -1,12 +1,15 @@
 #!/bin/bash
 ## Author: Dario Galanti Feb 2021
-## Aim: Combine bedGraph files in a unionbedg applying maxNA filtering
-## Input: wgbs outDir with dir tree: wgbs_output/${context}/${sample}.bedGraph
-## Output: multisample unionbed file harbouring methylation info for all cytosines and all samples
+## Aim: Combine bedGraph files in a unionbed applying maxNA filtering and extracting post-filtering average methylation
+## Documentation (EpiDiverse WGBS pipeline): https://github.com/EpiDiverse/wgbs
+## Input: coverage-filtered bedgraph files with dir structure: wgbs_filt_output/${context}/${sample}.bedGraph (produced by 1_filter_bedGraphs.sh)
+## Output: multisample unionbed file with methylation calls (possibly with NAs depending on filtNAs parameter)
 ## Run: bash 2_bedGraphs_to_unionbed.sh filtered_bedGraphs_Dir context
 ## Run: sbatch --partition test --cpus-per-task 2 --mem 40G --time 20:00:00 --wrap "bash 2_bedGraphs_to_unionbed.sh bedGraphs_v3_3cov CpG"
 
-## MAKE SURE BAD LOW COV SAMPLES (TA_SE_09_10_F1_HC0_M1_1) WERE REMOVED FROM THE INPUT DIRS
+## NB: The previous script (1_filter_bedGraphs.sh) produces QC files that should be used to check samples coverage.
+## NB: Outlier samples with very low coverage should be removed before running this script by manually deleting the corresponding filtered bedgraph files.
+## I REMOVED "TA_SE_09_10_F1_HC0_M1_1" MANUALLY
 
 ## FILE DIRECTORIES AND NA FILTERING:
 inDir=$1
