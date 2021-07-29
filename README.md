@@ -13,5 +13,5 @@ Coverage filtering of single-sample bedGraph files and sample specific QC. Posit
 Combining coverage-filtered bedGraph files in a unionbed file, applying maxNA filtering and extracting post-filtering average methylation.
 
 [average_over_bed.py](https://github.com/Dario-Galanti/EpiWGBS_downstream/blob/main/average_over_bed.py)<br/> 
-Python script to extract average methylation of regions (stored in a bed file), from a multisample position unionbed file. It outputs a unionbed file with regions as rows instead of positions.
+Python script to extract average methylation of distinct non-overlapping regions (stored in a bed file), from a multisample position unionbed file. It outputs a unionbed file with regions as rows instead of positions.
 
