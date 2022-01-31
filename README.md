@@ -11,9 +11,4 @@ Contains scripts for initial downstream analysis of the single-sample bedgraph f
 
 [region_meth](https://github.com/Dario-Galanti/WGBS_downstream/tree/main/region_meth)<br/>
 Contains scripts to extract methylation of genomic features (genes, promoters, TEs) from multisample unionbed files.
-<br/>
-
-And a script: <br/>
-[average_over_bed.py](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/average_over_bed.py)<br/> 
-Python script to extract average methylation of distinct non-overlapping regions (stored in a bed file), from a multisample position unionbed file. It outputs a unionbed file with regions as rows instead of positions.
 
