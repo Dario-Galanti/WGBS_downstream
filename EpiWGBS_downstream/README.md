@@ -6,11 +6,12 @@ The EpiDiverse [WGBS pipeline](https://github.com/EpiDiverse/wgbs) is a great to
 <br/> 
 
 SCRIPTS DESCRIPTION: <br/>
-[1_filter_bedGraphs.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/1_filter_bedGraphs.sh)<br/>
+[1_filter_bedGraphs.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/EpiWGBS_downstream/1_filter_bedGraphs.sh)<br/>
 Coverage filtering of single-sample bedGraph files and sample specific QC. Positions with cov < cov_flt are discarded.
 
-[2_bedGraphs_to_unionbed.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/2_bedGraphs_to_unionbed.sh)<br/>
+[2_bedGraphs_to_unionbed.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/EpiWGBS_downstream/2_bedGraphs_to_unionbed.sh)<br/>
 Combining coverage-filtered bedGraph files in a unionbed file, applying maximum NAs filtering and extracting post-filtering average methylation.
 
-[3_filter_unionbed.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/3_filter_unionbed.sh)<br/>
+[3_filter_unionbed.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/EpiWGBS_downstream/3_filter_unionbed.sh)<br/>
 Filtering unionbed file for (1) maximum number of NAs (as in previous script); (2) Variability of positions: This method is similar to Minor Allele Frequency (MAF) filtering commonly used for genetic data and is based on defining a Minor Epiallele Frequency/Count (MEF/MEC), which is the proportion/number of samples which need to have differential methylation from all others and an Epiallele Difference (ED), which is the minimum methylation difference to define differential methylation between two samples. It can be used for example to exclude non variable positions before running clustering or PCA analysis.
+
