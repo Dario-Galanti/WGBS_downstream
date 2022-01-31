@@ -18,3 +18,6 @@ Wrapper script extracting methylation of two sets of regions stored in two bed f
 [unionbed_reg_AVG_allcont.py](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/region_meth/unionbed_reg_AVG_allcont.py)<br/>
 Python script to plot the average (and optionally st.dev) distributions of regions in all contexts at the same time.
 
+[average_over_bed.py](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/region_meth/average_over_bed.py)<br/> 
+Python script to extract average methylation of distinct non-overlapping regions (stored in a bed file), from a multisample position unionbed file. It outputs a unionbed file with regions as rows instead of positions.
+
