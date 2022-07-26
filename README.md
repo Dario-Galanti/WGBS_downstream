@@ -11,7 +11,7 @@ Contains scripts for downstream analysis of the single-sample bedgraph files pro
 In addition, it is possible to calculate simple average methylation of regions (mean methylation in [Schultz et al 2012](https://www.cell.com/trends/genetics/fulltext/S0168-9525(12)00171-0)).<br/>
 The workhorse here are unionbed files (positions as rows and samples as columns) with the computed fraction of methylated/total reads for each sample and position.<br/>
 Eg.<br/>
-chrom start end Sample1  Sample2  Sample3 ...<br/>
+chrom&emspstart end Sample1  Sample2  Sample3 ...<br/>
 Chr1  2234 2235 13.63 14.29 90.90
 <br/> 
 <br/> 
