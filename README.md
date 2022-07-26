@@ -21,6 +21,7 @@ Contains scripts for downstream analysis of the single-sample bedgraph files pro
 In addition, it is possible to:<br/>
 1) calculate both mean and weighted methylation of regions according to [Schultz et al 2012](https://www.cell.com/trends/genetics/fulltext/S0168-9525(12)00171-0) optionally correcting for non-conversion rate.<br/>
 2) to classify genes methylation status using a binomial model adapted from [Takuno and Gaut 2013](https://www.pnas.org/doi/abs/10.1073/pnas.1215380110) and [Niedethuth et al. 2016](Widespread natural variation of DNA methylation within angiosperms).<br/>
+
 The workhorse here are unioncount files (positions as rows and samples as columns) with the methylated/total read counts for each sample and position.<br/>
 Eg.<br/>
 chrom start end Sample1  Sample2  Sample3 ...<br/>
