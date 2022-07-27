@@ -32,4 +32,6 @@ Collection of scripts to extract mean and weighted methylation or fraction of me
 1) whole genomic features (eg. all genes, CDS ...)<br/>
 2) individual regions (eg. individual genes, CDS, TEs, DMRs...).
 <br/>
+Gene Body Methylation classification is also included
+<br/>
 
