@@ -85,6 +85,9 @@ awk 'FNR!=1' ${outdir}/m${cont}_*_${feature}.bed | sort -k1,1V -k2,2n >> $region
 ## Cleanup
 rm ${outdir}/covered_${cont}_*_${feature}.bed	$index # rm fins and index
 
+## Exit script if running with unioncount_reg_fracMetCs.py, because the data format (meth/total Cs) is different
+if [ $(basename $avg_over_bed) = "unioncount_reg_fracMetCs.py" ];then echo "calculating fraction of met Cs, so we stop before further calculations";exit 1;fi
+
 ## 8) Record average methylation distribution of analysed regions
 echo -e Meth"\t"Num_of_${feature} > $reg_meth_distr
 for min in {0..98..2};
