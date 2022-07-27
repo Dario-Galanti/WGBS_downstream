@@ -30,7 +30,8 @@ mkdir -p $outDir/input_bedgraphs/${cont}
 for f in ${inDir}/${cont}/*.bedGraph;
 do
 	temp_bedGr=$outDir/input_bedgraphs/${cont}/$(basename $f)
-	tail -n+2 $f | cut -f-4 > $temp_bedGr
+	#tail -n+2 $f | cut -f-4 > $temp_bedGr					# This bedGraph column is rounded down > underestimation of methylation levels
+	tail -n+2 $f | awk '{met=100*$5/($5+$6);printf "%s\t%s\t%s\t%.2f\n", $1,$2,$3,met}' > $temp_bedGr		# This is more precise
 done
 
 ## MAKE UNIONBED
