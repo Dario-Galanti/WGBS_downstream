@@ -25,4 +25,11 @@ Correct for non-conversion rates as described in [Schultz et al 2012](https://ww
 
 [2b_comb_unioncount.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/2b_comb_unioncount.sh)<br/>
 Combine individual scaffold results from [2a_unioncount_binom_byscaff.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/2a_unioncount_binom_byscaff.sh) and extract average and weighted methylation [Schultz et al 2012](https://www.cell.com/trends/genetics/fulltext/S0168-9525(12)00171-0).
+<br/>
+
+[region_meth](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/region_meth)<br/>
+Collection of scripts to extract mean and weighted methylation or fraction of methylated cytosines (all methylation stats described in [Schultz et al 2012](https://www.cell.com/trends/genetics/fulltext/S0168-9525(12)00171-0)) of either:<br/>
+1) whole genomic features (eg. all genes, CDS ...)<br/>
+2) individual regions (eg. individual genes, CDS, TEs, DMRs...).
+<br/>
 
