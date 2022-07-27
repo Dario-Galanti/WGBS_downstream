@@ -30,8 +30,7 @@ Combine individual scaffold results from [2a_unioncount_binom_byscaff.sh](https:
 [region_meth](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/region_meth)<br/>
 Collection of scripts to extract mean and weighted methylation or fraction of methylated cytosines (all methylation stats described in [Schultz et al 2012](https://www.cell.com/trends/genetics/fulltext/S0168-9525(12)00171-0)) of either:<br/>
 1) whole genomic features (eg. all genes, CDS ...)<br/>
-2) individual regions (eg. individual genes, CDS, TEs, DMRs...).
-<br/>
+2) individual regions (eg. individual genes, CDS, TEs, DMRs...).<br/>
 Gene Body Methylation classification is also included
 <br/>
 
