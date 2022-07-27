@@ -10,6 +10,7 @@ library(data.table)
 library(stringr)
 library(stats)
 
+###### FIRST PART ######    Perform for each context separately
 ## READ INPUT
 #Run one context at a time, extract genes that can be analysed in all contexts and then only carry on analysis with those genes
 fin <- "FracMetCs_CDSs/fracMetCpGs_indiv_CDSs.bed"
@@ -21,7 +22,6 @@ rownames(df) <- df$Info
 
 # DEFINE Background frequencies (average fraction of met Cs in CDS)
 CDS_freqMetCs <- c(0.034755, 0.022100, 0.016805)  #For CpG, CHG and CHH
-
 
 ## FORMAT
 #positions <- df[,1:6]
@@ -51,18 +51,6 @@ for (r in 1:nrow(df)){
     flt_df <- rbind(flt_df,df[r,])
   }
 }
-## Or just
-flt_df <- df
-for (r in 1:nrow(flt_df)){
-  for(c in 7:ncol(flt_df)){
-    if (is.na(flt_df[r,c])==F){
-      tot <- as.integer(strsplit(flt_df[r,c], split = "/")[[1]][2])
-      if(tot < 6){
-        flt_df[r,c] <- NA
-      }
-    }
-  }
-}
 ## Check that rows with too many NAs were deleted
 max(rowSums(is.na(flt_df)))
 
@@ -70,17 +58,19 @@ CpG_analysed_genes <- flt_df$Info
 CHG_analysed_genes <- flt_df$Info
 CHH_analysed_genes <- flt_df$Info
 analysed_genes <- intersect(intersect(CpG_analysed_genes, CHG_analysed_genes), CHH_analysed_genes)
-write.table(CHH_analysed_genes,"CHH_analysed_genes.txt", quote = F, row.names = F, col.names = F, sep = "\t")
+write.table(analysed_genes,"analysed_genes.txt", quote = F, row.names = F, col.names = F, sep = "\t")
 #NB: Before filtering we have 23187 CDSs in CpG and 23335 in CHG
 # After filtering cov10 in at least 90% samples, we have 22960 CDSs in CpG, 23103 in CHG and 23720 in CHH.
-# CpG-CHG intersection is 22705 CDSs. CpG-CHG-CHH intersection is 22703 CDSs.
+# CpG-CHG intersection is 22705 CDSs.
+# CpG-CHG-CHH intersection is 22703 CDSs. WE WILL ANALYSE THESE GENES
 
+
+###### SECOND PART ######    Perform for each context separately
 ## INTERSECT GENES WITH GENES TO ANALYSE
 vec <- rownames(flt_df) %in% analysed_genes
 flt_df <- flt_df[vec,]
 
-
-## DEFINE FUNCTION: Binom test
+## DEFINE FUNCTION FOR BINOMIAL TEST
 binom_test <- function(m, prob) {
   if (is.na(m)==F){
     met <- as.integer(strsplit(m, split = "/")[[1]][1])
@@ -93,20 +83,17 @@ binom_test <- function(m, prob) {
   return(m)
 }
 
-## FOR LOOP THROUGH COLUMNS AND LAPPLY
+## FOR LOOP THROUGH COLUMNS AND LAPPLY BINOMIAL TEST
 gbM_df <- flt_df
-print(paste("Beginning binomial tests at", Sys.time()))
 for (c in 7:ncol(df)){
   newcol.p <- unlist(lapply(flt_df[,c], binom_test, prob=freq))
   newcol.q <- p.adjust(newcol.p, "BH")
   newcol <- ifelse(newcol.q < 0.05, 1, 0)
   gbM_df[c] <- newcol
 }
-print(paste("Binomial tests finished at", Sys.time()))
 
 
-
-## PRINT RESULTS
+## PRINT RESULTS FOR EACH CONTEXT
 fwrite(gbM_df, paste(cont,"_gbM_binom_fdr.txt",sep=""), sep="\t",row.names=F, col.names=T, quote=F, na="NA")
 
 ## EXTRACT GENES METHYLATED IN X PORTION OF SAMPLES
@@ -114,7 +101,6 @@ gbM_df <- fread(paste(cont,"_gbM_binom_fdr.bed",sep=""), header=T, data.table=F)
 rownames(gbM_df) <- gbM_df$Info
 gbM_df <- gbM_df[7:ncol(gbM_df)]
 gbM_df[] <- lapply(gbM_df, as.integer)
-
 
 metgenes <- gbM_df[(rowSums(gbM_df, na.rm=T)/spls-rowSums(is.na(gbM_df))) > 0.7,]
 write.table(rownames(metgenes),paste(cont,"_met_genes_70perc.txt",sep=""), quote = F, row.names = F, col.names = F, sep = "\t")
