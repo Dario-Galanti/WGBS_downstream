@@ -23,6 +23,6 @@ Wrapper script to run [unioncount_binom.R](https://github.com/Dario-Galanti/WGBS
 Correct for non-conversion rates as described in [Schultz et al 2012](https://www.cell.com/trends/genetics/fulltext/S0168-9525(12)00171-0). Perform a binomial test on each C to test if methylation is higher than background frequency (non-conversion rate) and convert methylated counts to zero if binomial test is not significant (P > 0.01).
 <br/>
 
-[2a_unioncount_binom_byscaff.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/2a_unioncount_binom_byscaff.sh)<br/>
+[2b_comb_unioncount.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/2b_comb_unioncount.sh)<br/>
 Combine individual scaffold results from [2a_unioncount_binom_byscaff.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/2a_unioncount_binom_byscaff.sh) and extract average and weighted methylation [Schultz et al 2012](https://www.cell.com/trends/genetics/fulltext/S0168-9525(12)00171-0).
 
