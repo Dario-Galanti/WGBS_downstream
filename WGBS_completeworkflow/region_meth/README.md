@@ -17,6 +17,6 @@ Extract average methylation statistics of whole genomic features (eg. all genes,
 Extract average methylation statistics of individual regions (eg. all genes, CDSs, promoters ...). Starting from intersected unioncount files produced by [2_Features_methylation_Epi.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/region_meth/1_Features_to_bed.sh), and two bed files for Forward and Reverse regions, it can extract methylation statistics for each individual region.<br/>
 NB: Whether 1) mean methylation, 2) weighted methylation or 3) fraction of methylated cytosines depends on the python script defined at the beginning of the file.<br/>
 [unioncount_reg_avgmet.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/region_meth/unioncount_reg_avgmet.sh) calculates simple average methylation (mean methylation) <br/>
-[unioncount_reg_fracMetCs.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/region_meth/unioncount_reg_fracMetCs.sh) calculates the fraction of methylated cytosines per region<br/>
+[unioncount_reg_fracMetCs.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/region_meth/unioncount_reg_fracMetCs.sh) calculates the fraction of methylated cytosines <br/>
 [unioncount_reg_weighmet.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/region_meth/unioncount_reg_weighmet.sh) calculates weighted methylation <br/>
 
