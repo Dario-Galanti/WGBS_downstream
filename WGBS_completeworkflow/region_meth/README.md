@@ -19,4 +19,8 @@ NB: Whether 1) mean methylation, 2) weighted methylation or 3) fraction of methy
 [unioncount_reg_avgmet.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/region_meth/unioncount_reg_avgmet.sh) calculates simple average methylation (mean methylation) <br/>
 [unioncount_reg_fracMetCs.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/region_meth/unioncount_reg_fracMetCs.sh) calculates the fraction of methylated cytosines <br/>
 [unioncount_reg_weighmet.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/region_meth/unioncount_reg_weighmet.sh) calculates weighted methylation <br/>
+<br/>
+
+[GBM_binom_test.R](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/region_meth/GBM_binom_test.R)<br/>
+R script to run locally to classify CDS in methylated/unmethylated based on the number of methylated/total cytosines obtained from running [3_Regions_methylation.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/region_meth/3_Regions_methylation.sh) with [unioncount_reg_fracMetCs.sh](https://github.com/Dario-Galanti/WGBS_downstream/blob/main/WGBS_completeworkflow/region_meth/unioncount_reg_fracMetCs.sh). After determining the methylation state of each CDS in each sample and sequence context, then number of genes per sample methylated only in CG (gene body methylated (gbM) genes) or in either CHG or CHH (TE-like methylated (TEm) genes) can be extracted.
 
