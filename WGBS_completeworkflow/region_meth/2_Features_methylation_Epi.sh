@@ -62,6 +62,9 @@ do
 	echo "head -1 \$subset_unionbed | cut -f4- | tr '\t' '\n' > ${outdir}/${cont}_${feature}_tmp1.txt"				#Print sample names in a column
 	echo "awk 'NR>1{for(i=4;i<=NF;i++){if(\$i!=\"NA\"){split(\$i,a,\"/\");metsum[i]+=a[1];totsum[i]+=a[2];AVGsum[i]+=(a[1]/a[2]);c[i]++}}} END{for(i=4;i<=NF;i++){printf \"%.2f\t%.2f\n\",(100*AVGsum[i]/c[i]),(100*metsum[i]/totsum[i])}}' \$subset_unionbed > ${outdir}/${cont}_${feature}_tmp2.txt"
 	echo "echo -e Sample'\t'Avg_m${cont}_${feature}_25NAs'\t'Weighted_m${cont}_${feature}_25NAs > \$met_fout"
+	## or Fraction of methylated Cs (only after performing binomial test and converting to 0 met reads of non significant positions)
+	#echo "awk 'NR>1{for(i=4;i<=NF;i++){if(\$i!=\"NA\"){split(\$i,a,\"/\");if(a[1]>0){metsum[i]++};totsum[i]++}}} END{for(i=4;i<=NF;i++){printf \"%.2f\n\",(100*metsum[i]/totsum[i])}}' \$subset_unionbed > ${outdir}/${cont}_${feature}_tmp2.txt"
+	#echo "echo -e Sample'\t'Fraction_m${cont}_${feature}_25NAs > \$met_fout"
 	echo "paste ${outdir}/${cont}_${feature}_tmp1.txt ${outdir}/${cont}_${feature}_tmp2.txt >> \$met_fout"
 	echo "rm ${outdir}/${cont}_${feature}_tmp*.txt"
 	) > $jobName
