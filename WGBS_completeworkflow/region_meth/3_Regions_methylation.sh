@@ -10,7 +10,7 @@
 ### Input 1): position-sorted ("sort -k1,1V -k2,2n") unioncount file with meth/total read counts, already intersected with regions
 ### Input 2): Two bed files for Forward and Reverse regions (genes, TEs or promoters). Columns 4 and 5 should contain "strand" and "geneID" info (extra columns will be ignored)
 ### Run: bash 3_Regions_methylation.sh ${context}_${feature}_unionbed.bed regions_${feature}.bed 
-### Run: sbatch --partition test --cpus-per-task 4 --mem 20G --time 18:00:00 --wrap "bash 3_Regions_weighmethylation.sh /scr/episan/RP07/region_meth/Features_meth_v5/feature_unionbeds/CpG_CDSs_unionbed_v5_25NAs.bed"
+### Run: sbatch --partition test --cpus-per-task 4 --mem 20G --time 18:00:00 --wrap "bash 3_Regions_methylation.sh /scr/episan/RP07/region_meth/Features_meth_v5/feature_unionbeds/CpG_CDSs_unionbed_v5_25NAs.bed"
 ### Dependencies: either unioncount_reg_avgmet.py / unioncount_reg_weighmet.py / unioncount_reg_fracMetCs.py
 
 ### Steps:
