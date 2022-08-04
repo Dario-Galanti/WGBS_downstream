@@ -1,6 +1,6 @@
 # WGBS_completeworkflow
 
-Scripts for downstream analysis of the single-sample bedgraph files produced by the [WGBS pipeline](https://github.com/EpiDiverse/wgbs), including coverage filtering, merging samples into unincount files and NA filtering.<br/>
+Scripts for downstream analysis of the single-sample bedgraph files produced by the [WGBS pipeline](https://github.com/EpiDiverse/wgbs), including coverage filtering, merging samples into unioncount files and NA filtering.<br/>
 In addition, it is possible to:<br/>
 1) calculate both mean and weighted methylation of regions according to [Schultz et al 2012](https://www.cell.com/trends/genetics/fulltext/S0168-9525(12)00171-0), optionally correcting for non-conversion rates.<br/>
 2) classify genes methylation status using a binomial model adapted from [Takuno and Gaut 2013](https://www.pnas.org/doi/abs/10.1073/pnas.1215380110) and [Niedethuth et al. 2016](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1059-0).<br/>
