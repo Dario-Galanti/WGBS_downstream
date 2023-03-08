@@ -27,4 +27,7 @@ Eg.<br/>
 chrom start end Sample1  Sample2  Sample3 ...<br/>
 Chr1  2234 2235 3/22 4/28 10/11
 
+<br/>
 
+PUBLICATIONS: <br/>
+[Genetic and environmental drivers of large-scale epigenetic variation in Thlaspi arvense](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1010452)
